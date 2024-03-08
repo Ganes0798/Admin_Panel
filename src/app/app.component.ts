@@ -8,6 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CustomSidenavComponent } from './admin/custom-sidenav/custom-sidenav.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
     selector: 'app-root',
@@ -20,10 +22,14 @@ import { CustomSidenavComponent } from './admin/custom-sidenav/custom-sidenav.co
       MatToolbarModule, 
       MatListModule,
       MatButtonModule,
-    RouterModule]
+    RouterModule,
+  SidenavComponent,
+  MatMenuModule]
 })
 export class AppComponent implements OnDestroy {
   isExpanded = true;
+  collapsed = signal(false);
+  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
@@ -32,10 +38,6 @@ export class AppComponent implements OnDestroy {
         this.isExpanded = (event.url !== '/login');
       }
     });
-  }
-
-  toggleSidebar() {
-    this.isExpanded = !this.isExpanded;
   }
 
   isLoginPage(): boolean {
