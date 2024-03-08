@@ -1,37 +1,31 @@
-<mat-sidenav-container autosize >
-    <mat-sidenav #sidenav mode="side" opened="isExpanded" *ngIf="!isLoginPage()">
-      <mat-nav-list>
-  
-        <mat-list-item (click)="isExpanded = !isExpanded">
-          <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
-          </mat-icon>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="'dashboard'">
-          <mat-icon mat-list-icon>home</mat-icon>
-          <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="'info'">
-          <mat-icon mat-list-icon>important_devices</mat-icon>
-          <span *ngIf="isExpanded" class="menu-item">Info</span>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="'user'">
-          <mat-icon mat-list-icon>supervisor_account</mat-icon>
-          <span *ngIf="isExpanded" class="menu-item">User</span>
-        </mat-list-item>
-  
-      </mat-nav-list>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [style.width]="sidenavWidth()" opened *ngIf="!isLoginPage()"> 
+     <app-sidenav ></app-sidenav>
     </mat-sidenav>
   
     <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
-    <mat-sidenav-content>
-      <mat-toolbar *ngIf="!isLoginPage()">
-        <h4>Hello everyone</h4>
+    <mat-sidenav-content [style.margin-left]="sidenavWidth()">
+      <mat-toolbar *ngIf="!isLoginPage()" class="mat-elevation-z3 d-flex justify-content-between">
+        <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="collapsed.set(!collapsed())">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div>
+        <button [matMenuTriggerFor]="menu" mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+             <mat-icon>account_circle</mat-icon>
+             Profile
+          </button>
+           <button mat-menu-item>
+               <mat-icon>exit_to_app</mat-icon>
+               Logout
+           </button>
+        </mat-menu>
+      </div>
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
-  
   </mat-sidenav-container>
 
