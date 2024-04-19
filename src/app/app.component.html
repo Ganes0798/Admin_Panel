@@ -1,10 +1,16 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" [style.width]="sidenavWidth()" opened *ngIf="!isLoginPage()"> 
-     <app-sidenav ></app-sidenav>
+    <mat-sidenav #sidenav mode="side" [style.width]="sidenavWidth()" opened *ngIf="!isLoginPage()" id="sidenav"> 
+     <app-sidenav (click)="startLoading()"></app-sidenav>
     </mat-sidenav>
-  
+     
     <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
     <mat-sidenav-content [style.margin-left]="sidenavWidth()">
+      <div *ngIf="loading && isLoginPage()" class="d-flex justify-content-center">
+      <mat-spinner></mat-spinner>
+    </div>
+      <div *ngIf="loading && !isLoginPage()"  class="loader-container">
+        <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
+      </div>
       <mat-toolbar *ngIf="!isLoginPage()" class="mat-elevation-z3 d-flex justify-content-between">
         <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="collapsed.set(!collapsed())">
           <mat-icon>menu</mat-icon>
@@ -18,7 +24,7 @@
              <mat-icon>account_circle</mat-icon>
              Profile
           </button>
-           <button mat-menu-item>
+           <button mat-menu-item (click)="_loginService.LogoutAdmin()">
                <mat-icon>exit_to_app</mat-icon>
                Logout
            </button>
@@ -28,4 +34,3 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-
