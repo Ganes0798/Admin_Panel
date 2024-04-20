@@ -1,0 +1,42 @@
+<mat-dialog-content class="p-5">
+    <mat-label class="d-flex justify-content-center">Add Products</mat-label>
+    <div class="userinput">
+        <form class="userForm">
+            <div class="flname d-flex">
+            <mat-form-field class="p-2">
+                <mat-label>Product Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+              <mat-form-field class="p-2">
+                <mat-label>Product Description</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+            <div class="ep d-flex">
+                <mat-form-field class="p-2">
+                    <mat-label>Product Image Url</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                  <mat-form-field class="p-2">
+                    <mat-label>Product Quantity</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="p-2">
+                    <mat-label>Category</mat-label>
+                    <mat-select>
+                        <mat-option value="fashion">Fashion</mat-option>
+                        <mat-option value="elec">Electronics</mat-option>
+                        <mat-option value="electrical">Electrical</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+           
+           <div class="buttons d-flex justify-content-end">
+            <button mat-raised-button color="warn" class="p-2" (click)="closeDialog()">Cancel</button>
+            <button mat-raised-button color="primary" class="ml-2">Add</button>
+           </div>
+        </form>
+    </div>
+  </mat-dialog-content>
