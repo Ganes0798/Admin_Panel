@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router, RouterModule } from '@angular/router';
 import { LoginService } from './login.service';
 import {MatSnackBar} from '@angular/material/snack-bar'
+import { response } from 'express';
 
 @Component({
   selector: 'app-login',
@@ -48,8 +49,9 @@ export class LoginComponent implements OnInit {
       "email": data.email,
       "password": data.password
     }
-    this._loginService.loginAsAdmin(jsonInput).subscribe((response: any) => {
-         if(response.code == 200 && response.success == true)
+    this._loginService.loginAsAdmin(jsonInput).subscribe({
+      next: (response: any) => {
+        if(response.code == 200 && response.success == true)
          {
           this._snackBar.open(response.message, 'Undo', {
             duration: 3000
@@ -61,9 +63,11 @@ export class LoginComponent implements OnInit {
          else{
           this._snackBar.open('Something Went Wrong');
          }
-    });
+      },
+      error: (err : any) => {
+        this._snackBar.open(err.message, 'undo', {
+          duration: 3000
+        });
+      }});
   }
-
-
-
 }
