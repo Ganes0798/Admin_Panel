@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -9,14 +11,27 @@ import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-product-input',
   standalone: true,
-  imports: [MatDialogModule, MatFormFieldModule, MatOptionModule, MatSelectModule,MatInputModule,MatButtonModule],
+  imports: [CommonModule,MatDialogModule, MatFormFieldModule, MatOptionModule, MatSelectModule,MatInputModule,MatButtonModule, ReactiveFormsModule],
   templateUrl: './product-input.component.html',
   styleUrl: './product-input.component.scss'
 })
-export class ProductInputComponent {
+export class ProductInputComponent implements OnInit {
+  productForm: any;
 
 
 
+  constructor(private _formBuilder: UntypedFormBuilder){}
+
+
+  ngOnInit(): void{
+    this.productForm = this._formBuilder.group({
+      productName: ['', Validators.required],
+      productDesc: ['', Validators.required],
+      productImageUrl: ['', Validators.required],
+      productTotal: ['', Validators.required],
+      productCategory: ['', Validators.required]
+    });
+  }
 
 
   closeDialog(){
