@@ -1,3 +1,25 @@
 .main{
     margin: 50px;
 }
+
+.drawer {
+    position: fixed;
+    height: 100vh;
+    min-width: 30%;
+    border-right: 1px solid #ccc;
+  }
+  .drawer .contents {
+    padding: 16px;
+    border-bottom: 1px solid black;
+  }
+  
+  .main {
+    background-color: #fff;
+  }
+  
+  .main.contents {
+    min-height: 100vh;
+    margin-top: 64px; /* height of header */
+    padding: 16px;
+  }
+  

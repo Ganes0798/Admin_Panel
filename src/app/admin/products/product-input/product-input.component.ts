@@ -24,13 +24,7 @@ export class ProductInputComponent implements OnInit {
 
 
   ngOnInit(): void{
-    this.productForm = this._formBuilder.group({
-      productName: ['', Validators.required],
-      productDesc: ['', Validators.required],
-      productImageUrl: ['', Validators.required],
-      productTotal: ['', Validators.required],
-      productCategory: ['', Validators.required]
-    });
+   
   }
 
 

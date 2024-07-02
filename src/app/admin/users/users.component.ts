@@ -15,6 +15,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { response } from 'express';
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -32,6 +33,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
   userForm: any;
   button_text: any;
   drawer_title: any;
+  id: any;
 
     constructor(private dialog: MatDialog, private _commonService: CommonServiceService, private _snackBar: MatSnackBar, private _formBuilder: UntypedFormBuilder ){
     }
@@ -112,6 +114,43 @@ export class UsersComponent implements OnInit, AfterViewInit {
            })
         }
       })
+    }
+    //Update User
+    //Delete User
+    openDialog(id:number) {
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent,{
+        data:{
+          message: 'Are you sure want to delete?',
+          buttonText: {
+            ok: 'Yes',
+            cancel: 'No'
+          }
+        }
+      });
+      const snack = this._snackBar.open('Snack bar open before dialog', 'undo', {
+        duration: 1000
+      });
+  
+      dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+        if (confirmed) {
+          this._commonService.DeleteUser(id).subscribe({
+            next:(response:any) => {
+                if(response.code == 200 && response.success == true)
+                {
+                  this._snackBar.open(response.message, 'Fechar', {
+                    duration: 2000,
+                  });
+                }
+            },
+            error:(err:any) => {
+                   this._snackBar.open(err.message, 'Fechar', {
+                    duration: 2000,
+                  });
+            }
+          })
+         
+        }
+      });
     }
 
 

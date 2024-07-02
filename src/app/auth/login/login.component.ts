@@ -10,6 +10,7 @@ import { Router, RouterModule } from '@angular/router';
 import { LoginService } from './login.service';
 import {MatSnackBar} from '@angular/material/snack-bar'
 import { response } from 'express';
+import { LoaderService } from '../../loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
   constructor(private _formBuilder: UntypedFormBuilder, 
               private _loginService: LoginService, 
               private _snackBar: MatSnackBar,
-              private router: Router){}
+              private router: Router, public loader: LoaderService){}
 
 
   ngOnInit(): void {

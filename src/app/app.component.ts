@@ -48,12 +48,10 @@ export class AppComponent implements OnDestroy {
   constructor(private router: Router, public loaderService: LoaderService, public _loginService: LoginService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Check the current route and expand/collapse sidebar accordingly
         this.isExpanded = (event.url !== '/login');
       }
     }),
     setTimeout(() => {
-      // Simulate data loaded
       this.loading = false;
     }, 3000);
   }
@@ -65,20 +63,21 @@ export class AppComponent implements OnDestroy {
  
 
   startLoading() {
-    // Set loading to true to show the progress bar
-    this.loading = true;
+  
+    if(this.loading == true)
+    {
+      this.loading = true;
     
-    // Start increasing progress every second
-    const interval = setInterval(() => {
-      this.progress += 10; // Increment progress by 10
-      
-      // If progress reaches 100, stop the interval
-      if (this.progress >= 100) {
-        clearInterval(interval);
-        this.loading = false; // Hide the progress bar
-        this.progress = 0; // Reset progress
-      }
-    }, 1000);
+      const interval = setInterval(() => {
+        this.progress += 20;
+        
+        if (this.progress >= 100) {
+          clearInterval(interval);
+          this.loading = false;
+          this.progress = 0;
+        }
+      }, 2000);
+    }
   }
 
 

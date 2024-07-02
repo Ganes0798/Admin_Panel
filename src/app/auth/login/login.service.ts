@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment';
 import { Router } from '@angular/router';
+import { LoaderService } from '../../loader/loader.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,4 +25,6 @@ export class LoginService {
     localStorage.removeItem('token');
     this.route.navigate(['/login']);
   }
+
+
 }
