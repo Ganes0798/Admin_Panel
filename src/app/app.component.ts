@@ -39,8 +39,9 @@ import { LoginService } from './auth/login/login.service';
   ]
 })
 export class AppComponent implements OnDestroy {
-  loading: boolean = true;
-  progress: number = 0; 
+  // loading: boolean = true;
+  // progress: number = 0; 
+  
   isExpanded = true;
   collapsed = signal(false);
   sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
@@ -53,8 +54,7 @@ export class AppComponent implements OnDestroy {
       }
     }),
     setTimeout(() => {
-      // Simulate data loaded
-      this.loading = false;
+      // this.loading = false;
     }, 3000);
   }
 
@@ -64,22 +64,18 @@ export class AppComponent implements OnDestroy {
 
  
 
-  startLoading() {
-    // Set loading to true to show the progress bar
-    this.loading = true;
+  // startLoading() {
+  //   this.loading = true;
+  //   const interval = setInterval(() => {
+  //     this.progress += 10;
     
-    // Start increasing progress every second
-    const interval = setInterval(() => {
-      this.progress += 10; // Increment progress by 10
-      
-      // If progress reaches 100, stop the interval
-      if (this.progress >= 100) {
-        clearInterval(interval);
-        this.loading = false; // Hide the progress bar
-        this.progress = 0; // Reset progress
-      }
-    }, 1000);
-  }
+  //     if (this.progress >= 100) {
+  //       clearInterval(interval);
+  //       this.loading = false;
+  //       this.progress = 0;
+  //     }
+  //   }, 1000);
+  // }
 
 
 

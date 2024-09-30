@@ -10,6 +10,8 @@ import { Router, RouterModule } from '@angular/router';
 import { LoginService } from './login.service';
 import {MatSnackBar} from '@angular/material/snack-bar'
 import { response } from 'express';
+import { MatCardModule } from '@angular/material/card';
+import { LoaderService } from '../../loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,8 @@ import { response } from 'express';
     MatIconModule,
     MatInputModule,
     FormsModule,
-  RouterModule]
+  RouterModule,
+  MatCardModule]
 })
 export class LoginComponent implements OnInit {
   hide: any;
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
   constructor(private _formBuilder: UntypedFormBuilder, 
               private _loginService: LoginService, 
               private _snackBar: MatSnackBar,
-              private router: Router){}
+              private router: Router , public loader: LoaderService){}
 
 
   ngOnInit(): void {
@@ -42,6 +45,7 @@ export class LoginComponent implements OnInit {
            email: ['', Validators.required],
            password: ['', Validators.required]
          });
+         console.log(this.loader.isloading.value);
   }
 
   loginAdmin(data: any){
