@@ -11,7 +11,7 @@
       <div *ngIf="loading && !isLoginPage()"  class="loader-container">
         <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
       </div> -->
-      <mat-toolbar *ngIf="!isLoginPage()" class="mat-elevation-z3 d-flex justify-content-between">
+      <mat-toolbar *ngIf="!isLoginPage()" class="d-flex justify-content-between" style="background-color: white;">
         <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="collapsed.set(!collapsed())">
           <mat-icon>menu</mat-icon>
         </button>

@@ -1,3 +1,28 @@
 .main {
     margin: 50px;
 }
+
+.dash-container-card{
+    position: relative;
+    width: 1230px;
+    padding: 15px;
+    border-radius: 15px;
+    top: 44px;
+}
+.dash-card-one{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.dash-table{
+    position: relative;
+    padding: 21px;
+    border-radius: 50px;
+}
+
+.products{
+    gap: 10px;
+}
