@@ -17,6 +17,7 @@ import { InterceptorService } from './loader/interceptor.service';
 import {MatProgressSpinnerModule, ProgressSpinnerMode} from '@angular/material/progress-spinner'
 import { ThemePalette } from '@angular/material/core';
 import { LoginService } from './auth/login/login.service';
+import { HeaderComponent } from './admin/header/header.component';
 
 @Component({
     selector: 'app-root',
@@ -31,7 +32,7 @@ import { LoginService } from './auth/login/login.service';
       MatButtonModule,
     RouterModule,
   SidenavComponent,
-  MatMenuModule, MatProgressBarModule, MatProgressSpinnerModule],
+  MatMenuModule, MatProgressBarModule, MatProgressSpinnerModule, HeaderComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true
@@ -39,9 +40,7 @@ import { LoginService } from './auth/login/login.service';
   ]
 })
 export class AppComponent implements OnDestroy {
-  // loading: boolean = true;
-  // progress: number = 0; 
-  
+  isSidebarOpen: boolean = true;
   isExpanded = true;
   collapsed = signal(false);
   sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
@@ -54,7 +53,6 @@ export class AppComponent implements OnDestroy {
       }
     }),
     setTimeout(() => {
-      // this.loading = false;
     }, 3000);
   }
 
@@ -62,20 +60,9 @@ export class AppComponent implements OnDestroy {
     return this.router.url === '/login';
   }
 
- 
-
-  // startLoading() {
-  //   this.loading = true;
-  //   const interval = setInterval(() => {
-  //     this.progress += 10;
-    
-  //     if (this.progress >= 100) {
-  //       clearInterval(interval);
-  //       this.loading = false;
-  //       this.progress = 0;
-  //     }
-  //   }, 1000);
-  // }
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 
 
 

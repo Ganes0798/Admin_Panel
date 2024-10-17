@@ -1,12 +1,30 @@
-<div class="sidnav-header">
-    <img style="width: 50%; height: 50%;" src="assets/Images/Logo.png" alt="">
-    <div class="header-text">
-        <h2>G2MET Admin</h2>
+<div class="sidebar" [class.open]="isSidebarOpen">
+    <div class="logo_details">
+      <div class="logo_name"><img src="/assets/Images/EHOUSE_logo.png" style="width: 80%;height: 80%;" alt=""></div>
+      <!-- <i class="bx" [ngClass]="{'bx-menu': !isOpen, 'bx-menu-alt-right': isOpen}" (click)="toggleSidebar()"></i> -->
     </div>
-</div>
-<mat-nav-list>
-    <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route">
-        <mat-icon matListItemIcon style="color: whitesmoke;">{{item.icon}}</mat-icon>
-        <span matListItemTitle style="color: white;">{{ item.label }}</span>
-    </a>
-</mat-nav-list>
+    <ul class="nav-list">
+      <!-- <li>
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li> -->
+      <li *ngFor="let item of menuItems">
+        <a [routerLink]="item.route">
+          <i [class]="item.icon"></i>
+          <span class="link_name">{{item.label}}</span>
+        </a>
+        <span class="tooltip">{{item.label}}</span>
+      </li>
+      <li class="profile">
+        <div class="profile_details">
+          <img src="/assets/Images/A1.jpg" alt="profile image">
+          <div class="profile_content">
+            <div class="name">Anna Jhon</div>
+            <div class="designation">Admin</div>
+          </div>
+        </div>
+        <i  (click)="authService.logout()" class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>

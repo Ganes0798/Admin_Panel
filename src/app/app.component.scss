@@ -1,13 +1,25 @@
-
-mat-sidenav-container {
-    height: 100%;
-  }
-#sidenav{
-  background-color: #1e293b;
-  ;
+.main {
+  display: flex;
+  height: 100%;
 }
-.loader-container{
-  position: fixed;
-  width: 100%;
-  z-index: 99;
+
+.main-side {
+  width: 80px;
+  transition: width 0.5s;
+}
+
+.main-side.open {
+  width: 250px;
+}
+
+.content-wrapper {
+  width: calc(100% - 0px);
+  transition: width 0.5s;
+}
+
+
+.page-content {
+  padding: 9px;
+  background-color: #f5f4f6;
+  height: 100%;
 }

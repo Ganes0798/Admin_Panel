@@ -15,18 +15,19 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { response } from 'express';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule,MatButtonModule, MatSidenavModule, MatTableModule, MatPaginatorModule, MatIconModule, MatFormFieldModule,MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule, ReactiveFormsModule, MatSelectModule, MatOptionModule],
+  imports: [CommonModule,MatButtonModule, MatSidenavModule, MatTableModule, MatPaginatorModule, MatIconModule, MatFormFieldModule,MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule, ReactiveFormsModule, MatSelectModule, MatOptionModule, MatCardModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
 })
 export class UsersComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'email', 'role', 'action'];
   dataSource = new MatTableDataSource<any>;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('drawer') drawer!: MatDrawer;
   userRoles: any;
   userForm: any;
@@ -157,8 +158,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
     }
 
   ngAfterViewInit(): void{
-    this.dataSource.paginator = this.paginator;
-    this.paginator.pageSize = 10;
+    // this.dataSource.paginator = this.paginator;
+    // this.paginator.pageSize = 10;
   }
 
 

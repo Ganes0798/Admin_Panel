@@ -12,6 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar'
 import { response } from 'express';
 import { MatCardModule } from '@angular/material/card';
 import { LoaderService } from '../../loader/loader.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   constructor(private _formBuilder: UntypedFormBuilder, 
               private _loginService: LoginService, 
               private _snackBar: MatSnackBar,
-              private router: Router , public loader: LoaderService){}
+              private router: Router , public loader: LoaderService, private cookieStore: CookieService){}
 
 
   ngOnInit(): void {
@@ -61,7 +62,7 @@ export class LoginComponent implements OnInit {
             duration: 3000
           });
             this.localToken = response.result.token
-            localStorage.setItem('token', this.localToken);
+            this.cookieStore.set('token', this.localToken);
             this.router.navigate(['/dashboard']);
          }
          else{
