@@ -1,29 +1,46 @@
-<div class="container mt-3 p-5 shadow">
-    <div class="row">
-        <div class="col-6 mt-5">
-            <form class="text-center d-grid p-5" [formGroup]="loginForm">
-                <mat-label class="fw-bolder fs-1">Login</mat-label>
-                <mat-form-field class="mt-4">
-                    <mat-label>Enter your email</mat-label>
-                    <input matInput placeholder="pat@example.com" [formControlName]="'email'">
-                    <mat-error *ngIf="this.loginForm.get('email').hasError('required')">Enter Email Id</mat-error>
-                  </mat-form-field>
+<section class="login-page">
+<div class="container shadow main-content">
+    <div class="row main-row">
+      <div class="col-4">
+        <mat-card class="card-content">
+          <h2 class="contentcard">Simplify management with our Dashboard.</h2>
+          <span class="linespan"></span>
+          <div class="contentcardsub">
+            <h6>Simplify your E-Commerce Management with our user-friendly Admin Dashboard.</h6>
+          </div>
 
-                  <mat-form-field class="mt-3">
-                    <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="'password'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-error *ngIf="this.loginForm.get('password').hasError('required')">Enter Password</mat-error>
-                  </mat-form-field>
-                  <div>
-                  <button mat-raised-button color="primary" (click)="loginAdmin(this.loginForm.value)">SignIn</button>
-                </div>
+          <div class="dimages">
+            <img src="/assets/Images/dimage.png" style="width: 100%;height: 65%;" alt="">
+          </div>
+        </mat-card>
+    </div>
+        <div class="col-6 form-content">
+            <form class="text-center d-grid form-sub-content" [formGroup]="loginForm">
+              <div class="login-content">
+                <img src="/assets/Images/EHOUSE_logo.png" style="width: 25%;" alt="">
+                <h2 class="fw-bolder fs-1">Welcome!</h2>
+                <span>Please Login to Your Account</span>
+              </div>
+              <div class="form-input-content">
+                <mat-form-field class="mt-4">
+                  <mat-label>Enter your email</mat-label>
+                  <input matInput placeholder="pat@g2met.com" [formControlName]="'email'">
+                  <mat-error *ngIf="this.loginForm.get('email').hasError('required')">Enter Email Id</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="mt-3">
+                  <mat-label>Enter your password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="'password'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="this.loginForm.get('password').hasError('required')">Enter Password</mat-error>
+                </mat-form-field>
+                
+                <button mat-raised-button  class="login-button" (click)="loginAdmin(this.loginForm.value)">SignIn</button>
+              </div>
             </form>
         </div>
-        <div class="col-6 mt-5">
-            <img src="/assets/Images/Login.jpg" style="width: 100%; height: 75%;" alt="">
-        </div>
     </div>
-</div>
+  </div>
+</section>

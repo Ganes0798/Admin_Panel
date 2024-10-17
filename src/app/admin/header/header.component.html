@@ -1,0 +1,25 @@
+<header class="header">
+    <button class="toggle-btn" (click)="onToggleSidebar()">
+        <i class="bx bx-menu"></i> <!-- Icon for sidebar toggle -->
+      </button>
+
+  <div class="header-icons">
+    <div class="notifications">
+      <i class="bx bx-bell"></i>
+      <span class="badge">3</span> <!-- Notification count -->
+    </div>
+
+    <div class="profile">
+      <img src="/assets/Images/A1.jpg" alt="Profile Image" class="profile-img" />
+      <div class="dropdown">
+        <span class="profile-name">Anna Jhon</span>
+        <i class="bx bx-chevron-down"></i>
+        <div class="dropdown-menu">
+          <a href="#"><i class="bx bx-user"></i>Profile</a>
+          <a href="#"><i class="bx bx-cog"></i>Settings</a>
+          <a href="#"><i class="bx bx-log-out" id="log_out"></i>Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

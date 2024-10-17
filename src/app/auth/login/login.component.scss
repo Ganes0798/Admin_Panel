@@ -1,0 +1,84 @@
+.main-content{
+    width: 55%;
+    height: auto;
+    position: relative;
+    padding: 35px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.card-content{
+    background-color: #3b6243;
+    position: relative;
+    width: 295px;
+    height: 385px;
+    border-radius: 33px;
+}
+
+.form-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-row{
+    display: flex;
+    justify-content: space-between;
+}
+.contentcard{
+    top: 54px;
+    position: relative;
+    font-size: 33px;
+    padding: 11px;
+    color: white;
+}
+
+.linespan{
+    content: "";
+    border: 4px solid white;
+    position: relative;
+    top: 30px;
+    width: 181px;
+    padding: 0px;
+    left: 62px;
+    border-radius: 50%;
+}
+
+.dimages{
+    position: relative;
+    top: -17px;
+    left: 12px;
+}
+
+.contentcardsub{
+    color: white;
+    padding: 32px;
+}
+
+.login-content{
+    display: grid;
+    line-height: 0px;
+    justify-items: center;
+    color: #3b6243;
+}
+.form-sub-content{
+    position: relative;
+    bottom: 30px;
+}
+.form-input-content{
+    display: grid;
+    justify-content: center;
+}
+
+.login-button{
+    padding: 20px;
+    background-color: #3b6243!important;
+    color: white!important;
+}
+
+.login-page{
+    background-color: #f5f4f6;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}

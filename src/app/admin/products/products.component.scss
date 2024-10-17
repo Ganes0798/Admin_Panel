@@ -1,3 +1,63 @@
 .main{
     margin: 50px;
 }
+
+.main-input{
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+}
+
+.search-input-box
+{
+    border: none;
+    border-radius: 11px;
+    padding: 10px;
+    background: aqua;
+    position: relative;
+    width: 215px;
+}
+
+.search-button{
+    right: 0px;
+    border: none;
+    position: relative;
+    background: aqua;
+    left: -37px;
+    top: 0px;
+}
+
+.add-filter-button
+{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+}
+
+.status-active {
+    color: green;
+  }
+  .status-inactive {
+    color: red;
+  }
+//   .action-btns {
+//     display: flex;
+//     gap: 10px;
+//   }
+  .table-img {
+    width: 50px;
+    height: auto;
+  }
+  .table thead th {
+    white-space: nowrap;
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.table-card{
+    border-radius: 20px;
+    margin-top: -22px;
+}
