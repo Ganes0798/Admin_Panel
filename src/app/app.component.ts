@@ -6,8 +6,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { CustomSidenavComponent } from './admin/custom-sidenav/custom-sidenav.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar'
@@ -15,7 +13,6 @@ import { LoaderService } from './loader/loader.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
 import {MatProgressSpinnerModule, ProgressSpinnerMode} from '@angular/material/progress-spinner'
-import { ThemePalette } from '@angular/material/core';
 import { LoginService } from './auth/login/login.service';
 import { HeaderComponent } from './admin/header/header.component';
 

@@ -1,11 +1,14 @@
-      <div class="main">
-        <div class="main-side" *ngIf="!isLoginPage()" [class.open]="isSidebarOpen">
-          <app-sidenav [isSidebarOpen]="isSidebarOpen"></app-sidenav>
-        </div>
-        <div class="content-wrapper" [class.expanded]="!isSidebarOpen">
-          <app-header (toggleSidebar)="toggleSidebar()"  *ngIf="!isLoginPage()"></app-header>
-          <div class="page-content">
-            <router-outlet></router-outlet>
-          </div>
-        </div>
-      </div>
+<div class="main">
+  <div class="main-side" *ngIf="!isLoginPage()" [class.open]="isSidebarOpen">
+    <app-sidenav [isSidebarOpen]="isSidebarOpen"></app-sidenav>
+  </div>
+  <div class="content-wrapper" [class.expanded]="!isSidebarOpen">
+    <app-header
+      (toggleSidebar)="toggleSidebar()"
+      *ngIf="!isLoginPage()"
+    ></app-header>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,74 @@
-<div class="main">
-    Orders Works
+<div class="order-management-container">
+    <div class="order-header">
+        <h2>Order Management</h2>
+        <button class="new-product-btn">+ New Product</button>
+    </div>
+    <div class="order-filters">
+        <input type="text" placeholder="Search anything" class="search-bar" />
+        <div class="filter-sort-options">
+            <button class="filter-btn">Filters</button>
+            <button class="sort-btn">Sort</button>
+            <button class="view-btn">View</button>
+        </div>
+    </div>
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Price</th>
+                <th>Paid</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let order of orders;let i = index">
+            <tr>
+                <td>{{i + 1}}</td>
+                <td>{{order.id}}</td>
+                <td>{{ order.date | date: 'dd MMM, yyyy' }}</td>
+                <td>{{order.items}}</td>
+                <td>{{ order.price | currency: 'USD' }}</td>
+                <td>
+                    <span *ngIf="order.paid" class="text-success">
+                      <i class='bx bxs-check-circle'></i>
+                    </span>
+                    <span *ngIf="!order.paid" class="text-danger">
+                      <i class='bx bxs-x-circle'></i>
+                    </span>
+                  </td>
+                <td>{{order.address}}</td>
+                <td>
+                    <span [ngClass]="getStatusClass(order.status)">
+                      {{ order.status }}
+                    </span>
+                  </td>
+                <td class="action">
+                    <!-- Dropdown on hover -->
+                    <div class="dropdown dropdown-hover">
+                      <button class="btn btn-light border-0 p-0">
+                        <i class='bx bx-dots-horizontal-rounded fs-5'></i>
+                      </button>
+                      <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="#">Download</a></li>
+                        <li><a class="dropdown-item" href="#">Edit Order</a></li>
+                        <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+            </tr>
+            <!-- Add more rows similarly -->
+        </tbody>
+    </table>
+     <!-- Pagination -->
+  <div class="d-flex justify-content-end mt-3">
+    <ul class="pagination shadow-sm">
+      <li class="page-item" *ngFor="let page of paginationPages">
+        <a class="page-link" href="#">{{ page }}</a>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -25,8 +25,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'role', 'action'];
-  dataSource = new MatTableDataSource<any>;
+  dataSource: any[] = [];
   // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('drawer') drawer!: MatDrawer;
   userRoles: any;

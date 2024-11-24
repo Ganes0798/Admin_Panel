@@ -74,20 +74,18 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Role Name</th>
-                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody class="table-bo">
+                <tbody class="table-bo" *ngFor="let data of dataSource">
                   <tr>
                     <!-- <td><input type="checkbox" /></td> -->
                     <td>
-                      Gabriela Cashmere Blazer
+                      {{data.firstName}}
                     </td>
-                    <td>$113.99</td>
-                    <td>1,111</td>
-                    <td>14,012</td>
-                    <td><span class="status-active">Active</span></td>
+                    <td>{{data.lastName}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.roleName}}</td>
                     <td class="action-btns">
                       <button class="btn btn-outline-primary">
                         <i class="fa-solid fa-pencil"></i>Edit
